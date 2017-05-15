@@ -20,10 +20,13 @@ const handleSubmit = (ev) => {
     const detailsList = document.createElement('ul')
     details.appendChild(detailsList)
 
-    createListItem(`Name: ${personName}`, detailsList)
-    createListItem(colorDiv, detailsList)
-    createListItem(`Age: ${age}`, detailsList)
-    createListItem(`Birthplace: ${birthplace}`, detailsList)
+    const inputs = document.querySelectorAll('input')
+    const labels = document.querySelectorAll('label')
+    let labelCount = 0
+    for(var i of inputs){
+        createListItem(`${labels[labelCount].textContent}: ${i.value}`, detailsList)
+        labelCount++
+    }
 }
 
 personForm.addEventListener('submit', handleSubmit)
