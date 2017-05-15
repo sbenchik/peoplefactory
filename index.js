@@ -32,4 +32,4 @@ const handleSubmit = (ev) => {
     detailsList.appendChild(birthplaceLi)
 }
 
-personForm.onsubmit = handleSubmit()
+personForm.onsubmit = handleSubmit
