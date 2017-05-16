@@ -2,7 +2,7 @@ const personForm = document.querySelector('form')
 
 const createListItem = (htmlText, parentElement) => {
     const newListItem = document.createElement('li')
-    newListItem.innerHTML = htmlText
+    newListItem.textContent = htmlText
     parentElement.appendChild(newListItem)
 }
 
@@ -27,7 +27,12 @@ const handleSubmit = (ev) => {
         if(labels[labelCount].htmlFor != 'hairColor'){
             createListItem(`${labels[labelCount].textContent}: ${i.value}`, detailsList)
         } else {
-            createListItem(`${labels[labelCount].textContent}: ${colorDiv}`, detailsList)
+            createListItem(`${labels[labelCount].textContent}:`, detailsList) 
+            const colorDiv = document.createElement('div')
+            detailsList.appendChild(colorDiv)
+            colorDiv.style.height = '50px'
+            colorDiv.style.width = '100px'
+            colorDiv.style.backgroundColor = `${hairColor}`
         }
         labelCount++
     }
