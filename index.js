@@ -30,7 +30,7 @@ const handleSubmit = (ev) => {
     
     const person = {
         name: form.person.name,
-        hairColor: form.hairColor.value,
+        hairColor: renderColor(form.hairColor.value).outerHTML,
         age: form.age.value,
         birthplace: form.birthplace.value,
     }
