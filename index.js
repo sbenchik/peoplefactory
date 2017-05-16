@@ -6,6 +6,15 @@ const createListItem = (htmlText, parentElement) => {
     parentElement.appendChild(newListItem)
 }
 
+const renderColor = (htmlText, parentElement, hairColor) => {
+    createListItem(htmlText, parentElement) 
+    const colorDiv = document.createElement('div')
+    parentElement.appendChild(colorDiv)
+    colorDiv.style.height = '50px'
+    colorDiv.style.width = '100px'
+    colorDiv.style.backgroundColor = hairColor
+}
+
 const handleSubmit = (ev) => {
     ev.preventDefault()
     const form = ev.target
@@ -27,12 +36,7 @@ const handleSubmit = (ev) => {
         if(labels[labelCount].htmlFor != 'hairColor'){
             createListItem(`${labels[labelCount].textContent}: ${i.value}`, detailsList)
         } else {
-            createListItem(`${labels[labelCount].textContent}:`, detailsList) 
-            const colorDiv = document.createElement('div')
-            detailsList.appendChild(colorDiv)
-            colorDiv.style.height = '50px'
-            colorDiv.style.width = '100px'
-            colorDiv.style.backgroundColor = `${hairColor}`
+            renderColor(`${labels[labelCount].textContent}:`, detailsList, `${hairColor}`)
         }
         labelCount++
     }
