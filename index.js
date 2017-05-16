@@ -32,7 +32,7 @@ const handleSubmit = (ev) => {
     const inputs = document.querySelectorAll('input')
     const labels = document.querySelectorAll('label')
     let labelCount = 0
-    for(var i of inputs){
+    for(let i of inputs){
         if(labels[labelCount].htmlFor != 'hairColor'){
             createListItem(`${labels[labelCount].textContent}: ${i.value}`, detailsList)
         } else {
